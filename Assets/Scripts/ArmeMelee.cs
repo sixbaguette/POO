@@ -1,17 +1,15 @@
+using UnityEngine;
 public class ArmeMelee : Arme
 {
-
-
-    public ArmeMelee(string name, string description, int degat, int durabilite) : base(name, description, degat, durabilite)
+    public ArmeMelee(int id, int degat, int range) : base(id, degat, range)
     {
-        Name = name;
-        Description = description;
+        Id = id;
         Degat = degat;
-        Durabilite = durabilite;
+        Range = range;
     }
 
-    public void Attaquer()
+    public override void attaquer()
     {
-        base.Attaquer();
+        Debug.Log("attaque épée");
     }
 }

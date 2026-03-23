@@ -1,34 +1,44 @@
-using UnityEngine;
-
-public class Arme
+public class Arme : ItemRamassable, IDamager
 {
-    public string Name { get; set; }
-    public string Description { get; set; }
-    public int Degat { get; set; }
-    public int Durabilite { get; set; }
-
-    //getter 
-    public string getName()
+    private int id { get; set; }
+    public int Id
     {
-        return Name;
+        get { return id; }
+        set { id = value; }
+    }
+    private int degat { get; set; }
+    public int Degat
+    {
+        get { return degat; }
+        set { degat = value; }
+    }
+    private int range { get; set; }
+    public int Range
+    {
+        get { return range; }
+        set { range = value; }
     }
 
-    //setter
-    public void setName(string valeur)
+    public Arme(int id, int degat, int range)
     {
-        Name = valeur;
+        this.id = id;
+        this.degat = degat;
+        this.range = range;
     }
 
-    public Arme(string name, string description, int degat, int durabilite)
+    public override void seFaireRamasser(IRamasser ramasseur)
     {
-        Name = name;
-        Description = description;
-        Degat = degat;
-        Durabilite = durabilite;
+        base.seFaireRamasser(ramasseur);
+        ramasseur.equiper(this);
     }
 
-    public void Attaquer()
+    public virtual void attaquer()
     {
-        Debug.Log($"{Name} + {Description} + {Degat} + {Durabilite}");
+
+    }
+
+    public void faireDegats(IDamageable cible)
+    {
+
     }
 }

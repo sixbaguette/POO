@@ -1,5 +1,5 @@
 using UnityEngine;
-public class ItemRamassable : Item, IRamassable
+public class ItemRamassable : IRamassable
 {
     public virtual void seFaireRamasser(IRamasser ramasseur)
     {

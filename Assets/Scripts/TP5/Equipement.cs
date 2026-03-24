@@ -11,7 +11,7 @@ public class Equipement
 
     public void EquipItems(IItemEquipable item)
     {
-        if (itemEquip == null) itemEquip = new IItemEquipable[4];
+        if (itemEquip == null) itemEquip = new IItemEquipable[System.Enum.GetValues(typeof(slotType)).Length];
 
         itemEquip[(int)item.getSlot()] = item;
     }

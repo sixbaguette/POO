@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     public Inventory inventory = new Inventory();
     public Equipement equipement = new Equipement();
 
+    private ItemsList epee;
+
     public void HealPlayer(int amount)
     {
         health = Mathf.Min(health + amount, maxHealth);
@@ -25,5 +27,15 @@ public class Player : MonoBehaviour
     public void PlayerAttack(int damage)
     {
         Debug.Log($"attack");
+    }
+
+    private void Start()
+    {
+        epee = new ItemsList();
+    }
+
+    private void Update()
+    {
+        epee.TotalCount();
     }
 }
